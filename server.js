@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 // 让 public 文件夹里的 index.html、style.css、app.js 可以被浏览器访问
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(__dirname));
 
 const COZE_API_BASE = "https://api.coze.cn";
 const BOT_ID = process.env.COZE_BOT_ID;
@@ -189,7 +189,7 @@ app.post("/api/chat", async (req, res) => {
 
 // 首页兜底
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.listen(PORT, () => {

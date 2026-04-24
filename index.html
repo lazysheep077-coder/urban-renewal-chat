@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>城市更新智能问答系统</title>
+
+  <!-- 引入样式文件 -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app">
+    <!-- 左侧历史记录栏 -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>城市更新问答</h2>
+        <button id="newChatBtn">+ 新建对话</button>
+      </div>
+
+      <div class="history-section">
+        <div class="history-title">历史记录</div>
+        <div id="historyList" class="history-list"></div>
+      </div>
+    </aside>
+
+    <!-- 右侧聊天主区域 -->
+    <main class="chat-main">
+      <!-- 顶部标题栏 -->
+      <header class="chat-header">
+        <div>
+          <h1>城市更新智能问答助手</h1>
+          <p>基于城市更新专业知识库与老旧小区改造知识图谱的智能问答平台</p>
+        </div>
+      </header>
+
+      <!-- 欢迎区 / 快捷问题区 -->
+      <section id="welcome" class="welcome">
+        <h2>你好，我是城市更新智能问答助手</h2>
+        <p>
+          我可以帮助你查询城市更新政策、老旧小区改造流程、知识图谱实体信息、
+          实体关系、三元组记录和典型案例等内容。
+        </p>
+
+        <div class="quick-grid">
+          <button class="quick-question">什么是城市更新？请根据知识库回答</button>
+          <button class="quick-question">老旧小区改造的主要任务有哪些？</button>
+          <button class="quick-question">老旧小区改造项目的完整流程是什么？</button>
+          <button class="quick-question">请查询“后验收”的实体信息和关系记录</button>
+          <button class="quick-question">“后验收”和“后评价”之间是什么关系？</button>
+          <button class="quick-question">请按三元组格式输出“后验收”的关系记录</button>
+        </div>
+      </section>
+
+      <!-- 聊天消息显示区域 -->
+      <section id="messages" class="messages"></section>
+
+      <!-- 底部输入区域 -->
+      <footer class="input-area">
+        <textarea
+          id="questionInput"
+          placeholder="请输入你的问题，例如：请查询“后验收”的实体信息和关系记录"
+        ></textarea>
+
+        <button id="sendBtn">发送</button>
+      </footer>
+    </main>
+  </div>
+
+  <!-- 引入前端交互脚本 -->
+  <script src="app.js"></script>
+</body>
+</html>

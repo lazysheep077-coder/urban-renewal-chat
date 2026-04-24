@@ -189,7 +189,7 @@ app.post("/api/chat", async (req, res) => {
 
 // 首页兜底
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.listen(PORT, () => {

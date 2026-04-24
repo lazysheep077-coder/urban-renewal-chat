@@ -191,18 +191,27 @@ async function sendQuestion(questionText) {
   sendBtn.textContent = "生成中";
 
   try {
-    const response = await fetch("/api/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        question,
-        conversation_id: conversation.conversation_id || ""
-      })
-    });
+  const response = await fetch("/api/chat", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    question,
+    conversation_id: conversation.conversation_id || ""
+  })
+});
 
-    const result = await response.json();
+const rawText = await response.text();
+
+let result;
+try {
+  result = JSON.parse(rawText);
+} catch {
+  result = {
+    error: rawText || "服务器返回内容不是 JSON，请检查 /api/chat 接口是否正常"
+  };
+}
 
     // 删除“正在查询知识库”
     conversation.messages.pop();
